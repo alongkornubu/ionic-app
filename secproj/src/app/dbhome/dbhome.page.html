@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-searchbar
+  placeholder="name"
+  [(ngModel)]="searchTerm"
+  showCancelButton="focus"
+  animate>
+  
+</ion-searchbar>
+
+
+<ion-list>
+  <ion-list-header>
+    Ionic Lists Example
+  </ion-list-header>
+  <ion-item-sliding *ngFor="let tmp of this.stdobj | filter:searchTerm">
+    <ion-item  >
+      <ion-label>
+        <h2>
+          {{tmp.name}}
+        </h2>
+        <p>
+          {{tmp.age}}
+        </p>
+        <p>
+          {{tmp.address}}
+        </p>
+      </ion-label>
+    </ion-item>
+      <ion-item-options>
+
+        <ion-button color="danger" (click)="presentConfirmDelete(tmp.id)">
+          <ion-icon name="trash"></ion-icon> Delete</ion-button>
+        <!--<ion-button color="primary" (click)="presentPromptEdit(tmp.id, tmp.name, tmp.address, tmp.age)">
+          <ion-icon name="create-outline"></ion-icon> Edit</ion-button>-->
+          <ion-button color="primary" (click)="presentPromptEdit(tmp)">
+            <ion-icon name="create-outline"></ion-icon> Edit</ion-button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-button (click)="presentPromptAdd(tmp)"expand="full" color="primary" icon-start>
+    <ion-icon name="add" ></ion-icon>
+    Create
+  </ion-button>
+</ion-content>

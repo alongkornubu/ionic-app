@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label>Password for {{ this.email }}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <br>
+
+  <ion-button color="success" (click)="openToast()" >Submit</ion-button>
+  <ion-button color="warning">Reset</ion-button>
+</ion-content>
